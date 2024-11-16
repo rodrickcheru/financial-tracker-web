@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Tracker - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Dashboard</h1>
+        <ul>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="budgeting.html">Budgeting</a></li>
+            <li><a href="reports.html">Reports</a></li>
+            <li><a href="acc.html">Account Management</a></li>
+            <li><a href="help.html">Help & Support</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <section class="summary">
+            <h2>Financial Overview</h2>
+            <div>
+                <canvas id="expenseChart" width="400" height="200"></canvas>
+            </div>
+        </section>
+
+        <section class="transaction-management">
+            <h2>Income & Expense Management</h2>
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" placeholder="Transaction description" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" placeholder="Enter amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <select id="type">
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category">
+                        <option value="rent">Rent</option>
+                        <option value="groceries">Groceries</option>
+                        <option value="utilities">Utilities</option>
+                        <option value="transportation">Transportation</option>
+                        <option value="misc">Miscellaneous</option>
+                    </select>
+                </div>
+                <button type="submit">Add Transaction</button>
+            </form>
+
+            <h2>Transactions</h2>
+            <div class="search-filter">
+                <input type="text" id="search-input" placeholder="Search transactions...">
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-list"></tbody>
+            </table>
+        </section>
+
+        <section class="budgeting-tools">
+            <h2>Budgeting Tools</h2>
+            <form id="budget-form">
+                <div class="form-group">
+                    <label for="budget-amount">Monthly Budget</label>
+                    <input type="number" id="budget-amount" placeholder="Enter your monthly budget" required>
+                </div>
+                <button type="submit">Set Budget</button>
+            </form>
+            <p>Your set budget is: <span id="display-budget">KSh 0.00</span></p>
+        </section>
+
+        <section class="savings-goals">
+            <h2>Savings Goals</h2>
+            <form id="savings-form">
+                <div class="form-group">
+                    <label for="goal-description">Goal Description</label>
+                    <input type="text" id="goal-description" placeholder="Enter your savings goal" required>
+                </div>
+                <div class="form-group">
+                    <label for="goal-amount">Goal Amount</label>
+                    <input type="number" id="goal-amount" placeholder="Enter amount to save" required>
+                </div>
+                <button type="submit">Add Goal</button>
+            </form>
+            <h3>Your Savings Goals</h3>
+            <ul id="goal-list"></ul>
+        </section>
+
+        <section class="reports">
+            <h2>Reports & Analytics</h2>
+            <button id="generate-report">Generate Report</button>
+            <div id="report-output" class="hidden">
+                <h3>Monthly Expense Report</h3>
+                <p id="monthly-expense-report">Total Expenses: KSh 0.00</p>
+            </div>
+        </section>
+
+        <section class="account-management">
+            <h2>Account Management</h2>
+            <form id="account-form">
+                <div class="form-group">
+                    <label for="account-username">Username</label>
+                    <input type="text" id="account-username" placeholder="Update your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="account-password">Password</label>
+                    <input type="password" id="account-password" placeholder="Update your password">
+                </div>
+                <button type="submit">Update Account</button>
+            </form>
+        </section>
+
+        <section class="help-support">
+            <h2>Help & Support</h2>
+            <p>If you need assistance, please contact support@cherry.com or call us at +254 7123456789.</p>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
